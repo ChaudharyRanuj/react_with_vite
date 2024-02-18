@@ -1,12 +1,23 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Homepage from "./pages/Homepage";
 import Product from "./pages/Product";
+import Pricing from "./pages/Pricing";
+import PageNav from "./components/PageNav";
+import PageNotFound from "./pages/PageNotFound";
+import AppLayout from "./pages/AppLayout";
 
-import "./App.css";
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route  path="./pages/Product" element={<Product />} />
+        <Route path="/" element={<Homepage />} />
+        <Route path="product" element={<Product />} />
+        <Route path="pricing" element={<Pricing />} />
+        <Route path="app" element={<AppLayout />} />
+        {/* path="*" works if note any route present*/}
+        <Route path="/page-nav" element={<PageNav />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,14 @@
+/* NEVER USE NORMAL ELEMENT SELECTORS USE CLASSES */
+/* WRITE CSS SAM AS STYLESHEET USING .BEFORE_CLASS_NAME AND #BEFORE_ID_NAME */
+.nav {
+  background-color: aquamarine;
+}
+.nav ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.nav a {
+  text-decoration: none;
+}
