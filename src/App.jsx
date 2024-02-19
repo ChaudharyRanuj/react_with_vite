@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, useActionData } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Homepage from "./pages/Homepage";
 import Product from "./pages/Product";
 import Pricing from "./pages/Pricing";
@@ -7,7 +8,7 @@ import PageNav from "./components/PageNav";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./pages/AppLayout";
 import CityList from "./components/CityList";
-import { useEffect, useState } from "react";
+import CountryList from "./components/CountryLIst";
 const BASE_URL = "http://localhost:9000";
 function App() {
   const [cities, setCities] = useState([]);
@@ -55,7 +56,10 @@ function App() {
             path="cities"
             element={<CityList isLoading={isLoading} cities={cities} />}
           />
-          <Route path="countries" element={<p>Countries</p>} />
+          <Route
+            path="countries"
+            element={<CountryList cities={cities} isLoading={isLoading} />}
+          />
           <Route path="form" element={<p>Form</p>} />
         </Route>
         {/* path="*" works if note any route present*/}
